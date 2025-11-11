@@ -45,6 +45,20 @@
 
             // });
         }
+        fetch('http://localhost:3000/v1/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': 'ABCD'
+            },
+            body: JSON.stringify({
+                name: 'John',
+                age: 25
+            })
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
     </script>
 </body>
 </html>

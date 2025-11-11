@@ -51,6 +51,17 @@ app.get('/v1/users',(req,res)=>{
 
 });
 
+app.post('/v1/users',(req,res)=>{
+    const data = req.body;
+    console.log(data);
+    var rn = data['age']
+    var nm = data['name']
+    db.query("INSERT INTO `users`(`Roll_No`, `Name`) VALUES ('"+ rn +"','"+ nm +"')",(err,results)=>{
+        if(err) return res.status(500).send(err);
+        res.json(results);
+    });
+});
+
 app.listen(3000,()=>{
     console.log("Server running on port 3000");
 });
