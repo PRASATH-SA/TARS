@@ -23,17 +23,15 @@
             fetch('http://localhost:3000/v1/users',{
                 method:'GET',
                 headers:{
-                    'x-api-key':'ACD'
+                    'x-api-key':'ABCD'
                 }
             })
             .then(e=>e.json())
             .then(v=>{
                 console.log(v);
-                for(var i=1;i<2;i++){
-                    for(var j=1;j<3;j++){
-                        s.innerHTML+="<br>"+v[i]['q'];
-                        console.log(v[i]['q'])
-                    }
+                for(var i=0;i<4;i++){
+                    s.innerHTML+="<br>"+v[i]['Name'];
+                    console.log(v[i]['Name'])
                 }
             });
             // fetch('http://localhost:3000/ans/observation')

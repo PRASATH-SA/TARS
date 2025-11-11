@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 });
 
 function apiKeyMiddleware(req, res, next) {
+  if(req.method === 'OPTIONS') return next();
   const key = req.header('x-api-key');
 
   if (!key) return res.status(401).json({ error: 'Missing API key' });
